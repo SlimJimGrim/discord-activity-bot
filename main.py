@@ -1,11 +1,12 @@
 
 # developed by slimmy (slimjimthegrim on discord)
+# uwu
 
 import discord
 import json
+from client import BotClient
 
-# Functions
-
+# json read function
 def read_json(file_name):
     try: 
         with open(file_name, 'r') as file:
@@ -18,14 +19,6 @@ def read_json(file_name):
             print(f"Error: Invalid JSON format in file: {file_name}")
             return
 
-# EXAMPLE Setup
-class MyClient(discord.Client):
-    async def on_ready(self):
-        print(f'Logged on as {self.user}!')
-
-    async def on_message(self, message):
-        print(f'Message from {message.author}: {message.content}')
-
 # Import bot info
 config = read_json('config.json')
 if config == None:
@@ -37,5 +30,5 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 # Set up bot client
-client = MyClient(intents=intents)
-client.run(config["token"])
+client = BotClient(intents=intents, config=config)
+client.run()
