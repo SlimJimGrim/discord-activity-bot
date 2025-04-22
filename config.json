@@ -1,3 +1,37 @@
 {
     "token": "PLACE BOT TOKEN HERE"
+
+    "server_id": ID INT HERE,
+    
+    "spider_config":
+    {
+        
+        "roles": [
+            {
+                "role_id": ROLE ID HERE,
+                "role_type": "perm"
+            }
+        ],
+
+        "use_filter": false,
+        "filter": "",
+
+        "range_config": 
+        {
+            "msg_needed": 70,
+            "day_range": 14
+        },
+
+        "perm_config":
+        {
+            "msg_num": 300
+        },
+
+        "day_config":
+        {
+            "msg_per_day": 10,
+            "days_needed": 4,
+            "day_range": 14
+        }
+    }
 }
