@@ -19,16 +19,20 @@ def read_json(file_name):
             print(f"Error: Invalid JSON format in file: {file_name}")
             return
 
-# Import bot info
-config = read_json('config.json')
-if config == None:
-    print(f"Exiting due to invalid config")
-    exit()
+def main():
+    # Import bot info
+    config = read_json('config.json')
+    if config == None:
+        print(f"Exiting due to invalid config")
+        exit()
 
-# Set up bot intents
-intents = discord.Intents.default()
-intents.message_content = True
+    # Set up bot intents
+    intents = discord.Intents.default()
+    intents.message_content = True
 
-# Set up bot client
-client = BotClient(intents=intents, config=config)
-client.run()
+    # Set up bot client
+    client = BotClient(intents=intents, config=config)
+    client.run()
+
+if __name__ == '__main__':
+    main()
